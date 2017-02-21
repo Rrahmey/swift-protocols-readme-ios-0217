@@ -31,19 +31,23 @@ print(jim.description)
 
 
 
-protocol PrettyDescription {
-    
-    var description: String { get }
+protocol TextDescription{
+    var textDescription: String {get}
     
 }
 
 
 
-class Animal {
+class Animal: TextDescription {
     
     var name: String
     var height: Double
     var favoriteFood: String
+    
+    var textDescription: String {
+        return "Name: \(self.name) \nHeight: \(self.height) \nFavorite Food: \(self.favoriteFood)"
+    }
+    
     
     init(name: String, height: Double, favoriteFood: String) {
         self.name = name
@@ -53,12 +57,12 @@ class Animal {
     
 }
 
-let prettyThings: [PrettyDescription] = []
-
-for prettyThing in prettyThings {
-    
-    print(prettyThing.description)
-    
-}
-
+////let prettyThings: [PrettyDescription] = []
+//
+//for prettyThing in prettyThings {
+//    
+//    print(prettyThing.description)
+//    
+//}
+var zebra = Animal(name: "Zebra", height: 60.0, favoriteFood: "Grass")
 
